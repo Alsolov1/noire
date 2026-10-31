@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>NOIRÉ | عطر استثنائي</title>
+  <meta name="description" content="اكتشف تجربة عطرية استثنائية مع NOIRÉ. اطلب عطرك الآن.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #111111;
+      --silver: #c8c8c8;
+      --white: #f7f7f7;
+      --muted: #999;
+      --border: rgba(255,255,255,.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      top: -180px;
+      left: -180px;
+      background: radial-gradient(circle, rgba(190,190,190,.10), transparent 70%);
+      pointer-events: none;
+      animation: glowMove 10s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes glowMove {
+      from { transform: translate(0,0); }
+      to { transform: translate(120px,100px); }
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      letter-spacing: 5px;
+      color: #fff;
+    }
+
+    .header-note {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 65px;
+      padding: 65px 0;
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 4px;
+      background: linear-gradient(145deg,#191919,#080808);
+      box-shadow: 0 25px 80px rgba(0,0,0,.55);
+      animation: imageEnter 1s ease both;
+    }
+
+    .product-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.12);
+      pointer-events: none;
+    }
+
+    .product-image img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform .8s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.045);
+    }
+
+    @keyframes imageEnter {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-info {
+      animation: textEnter 1s ease .15s both;
+    }
+
+    @keyframes textEnter {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      color: var(--silver);
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: 1.1;
+      letter-spacing: 5px;
+      background: linear-gradient(110deg,#fff,#999,#eee,#777);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: silverText 6s linear infinite;
+    }
+
+    @keyframes silverText {
+      to { background-position: 200% center; }
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-size: 15px;
+      margin: 17px 0 25px;
+      line-height: 2;
+    }
+
+    .description {
+      color: #b6b6b6;
+      font-size: 14px;
+      line-height: 2.1;
+      max-width: 440px;
+      margin-bottom: 25px;
+    }
+
+    .price {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .price span {
+      color: #999;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .feature {
+      border: 1px solid var(--border);
+      color: #ccc;
+      padding: 8px 15px;
+      font-size: 12px;
+      transition: .3s;
+    }
+
+    .feature:hover {
+      border-color: #ddd;
+      background: rgba(255,255,255,.08);
+      transform: translateY(-3px);
+    }
+
+    .order-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+      padding: 16px 28px;
+      background: linear-gradient(110deg,#eee,#999,#f7f7f7);
+      background-size: 200% auto;
+      color: #080808;
+      text-decoration: none;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: .35s;
+      box-shadow: 0 8px 30px rgba(255,255,255,.10);
+      animation: buttonShine 5s linear infinite;
+    }
+
+    @keyframes buttonShine {
+      to { background-position: 200% center; }
+    }
+
+    .order-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(255,255,255,.22);
+    }
+
+    .order-btn .arrow {
+      font-size: 20px;
+      transition: transform .3s;
+    }
+
+    .order-btn:hover .arrow {
+      transform: translateX(-5px);
+    }
+
+    .order-section {
+      padding: 55px 0 85px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .order-card {
+      max-width: 650px;
+      margin: auto;
+      padding: 35px;
+      background: linear-gradient(145deg,#151515,#0d0d0d);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      color: #ccc;
+      font-size: 13px;
+      margin-bottom: 9px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #090909;
+      border: 1px solid #303030;
+      color: #fff;
+      padding: 14px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: .3s;
+      border-radius: 0;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #aaa;
+      box-shadow: 0 0 15px rgba(255,255,255,.06);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #666;
+    }
+
+    select option {
+      background: #111;
+      color: white;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .form-message {
+      margin-top: 15px;
+      color: #ddd;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+      line-height: 1.8;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .mobile-order {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 25px;
+      }
+
+      .header-note {
+        font-size: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 35px 0 55px;
+      }
+
+      .product-image {
+        max-width: 500px;
+        margin: auto;
+      }
+
+      .product-info {
+        text-align: center;
+      }
+
+      .description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .features {
+        justify-content: center;
+      }
+
+      .order-section {
+        padding-bottom: 110px;
+      }
+
+      .order-card {
+        padding: 23px 18px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .mobile-order {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px 5%;
+        background: rgba(8,8,8,.94);
+        border-top: 1px solid rgba(255,255,255,.15);
+        backdrop-filter: blur(12px);
+        z-index: 100;
+      }
+
+      .mobile-order .order-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 13px;
+      }
+
+      .desktop-order {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="container">
+    <div class="logo">NOIRÉ</div>
+    <div class="header-note">THE ART OF PRESENCE</div>
+  </header>
+
+  <main>
+    <section class="hero container">
+
+      <div class="product-image">
+        <img
+          src="https://images.openai.com/static-rsc-4/UKgKUnYnGLEXpCfqLwSq8pj391EXgglNA9isM1W4aQPvCaoxltlblM3TeM-ZMSwNmkAE3L00lYu6uvkeH-03qSjy8e0y6nKkPrwrc-l9OZMjV6jYiFa0KIUWcfBosbOSKJIuigp0Pj-msQI2PwWBXN-0IOD1NJe9w-PdUf8t-G6mwnKr30R8J7eeh--C1Ohn?purpose=fullsize"
+          alt="عطر NOIRÉ"
+          fetchpriority="high"
+        >
+      </div>
+
+      <div class="product-info">
+        <div class="eyebrow">EXCLUSIVE FRAGRANCE</div>
+
+        <h1>NOIRÉ</h1>
+
+        <p class="subtitle">ليس مجرد عطر... بل حضور لا يُنسى.</p>
+
+        <p class="description">
+          اكتشف التوازن بين الأناقة والغموض.
+          عطر يمنحك حضوراً مميزاً ويترك انطباعاً يدوم.
+        </p>
+
+        <div class="price">
+          12,500 DA
+          <span> / السعر</span>
+        </div>
+
+        <div class="features">
+          <div class="feature">رائحة مميزة</div>
+          <div class="feature">أناقة استثنائية</div>
+          <div class="feature">توصيل متوفر</div>
+        </div>
+
+        <a href="#order" class="order-btn desktop-order">
+          اطلب الآن
+          <span class="arrow">←</span>
+        </a>
+      </div>
+
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>اطلب عطرك الآن</h2>
+          <p>املأ بياناتك وسنتواصل معك لتأكيد الطلب.</p>
+        </div>
+
+        <div class="order-card">
+          <form id="orderForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="name">الاسم الكامل</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="أدخل اسمك"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="phone">رقم الهاتف</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="05 / 06 / 07..."
+                  autocomplete="tel"
+                  inputmode="tel"
+                  required
+                >
+              </div>
+
+              <div class="form-group full">
+                <label for="wilaya">الولاية</label>
+                <input
+                  type="text"
+                  id="wilaya"
+                  name="wilaya"
+                  placeholder="اكتب ولايتك"
+                  required
+                >
+              </div>
+
+              <div class="form-group full">
+                <label for="delivery">طريقة التوصيل</label>
+                <select id="delivery" name="delivery" required>
+                  <option value="">اختر طريقة التوصيل</option>
+                  <option value="home">التوصيل إلى المنزل</option>
+                  <option value="office">التوصيل إلى المكتب</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="address">العنوان</label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="البلدية، الحي، والعنوان بالتفصيل"
+                  required
+                >
+              </div>
+
+              <div class="form-group full">
+                <label for="notes">ملاحظات إضافية (اختياري)</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  placeholder="أي معلومات إضافية..."
+                ></textarea>
+              </div>
+
+            </div>
+
+            <button type="submit" class="order-btn submit-btn">
+              تأكيد الطلب الآن
+              <span class="arrow">←</span>
+            </button>
+
+            <div class="form-message" id="formMessage" role="status"></div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-order">
+    <a href="#order" class="order-btn">
+      اطلب الآن
+      <span class="arrow">←</span>
+    </a>
+  </div>
+
+  <footer>
+    <div class="container">
+      NOIRÉ — THE ART OF PRESENCE
+      <br>
+      © 2026 جميع الحقوق محفوظة
+    </div>
+  </footer>
+
+  <script>
+    const orderForm = document.getElementById('orderForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitButton = orderForm.querySelector('button[type="submit"]');
+
+    // خدمات استقبال الطلبات
+    const FORMSPREE_URL = 'https://formspree.io/f/mqppdzgl';
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycby-l5B_i5O3QPbJMkj0G_0k7Wqfw-l3c9yprPvB0nZ_mxfdaufIJY__G-lZCtD8JjFD/exec';
+
+    orderForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      if (!orderForm.reportValidity()) return;
+
+      const originalButtonHTML = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.style.opacity = '0.65';
+      submitButton.textContent = 'جارٍ إرسال طلبك...';
+      formMessage.style.display = 'block';
+      formMessage.textContent = '';
+
+      const formData = new FormData(orderForm);
+      formData.append('_subject', 'طلب جديد من متجر NOIRÉ');
+      formData.append('product', 'NOIRÉ');
+      formData.append('price', '12500 DA');
+
+      // Google Apps Script يستقبل البيانات كحقول form-urlencoded عبر e.parameter
+      const sheetsData = new URLSearchParams();
+      for (const [key, value] of formData.entries()) {
+        sheetsData.append(key, value);
+      }
+      sheetsData.set('store', 'NOIRÉ');
+      sheetsData.set('product', 'NOIRÉ');
+      sheetsData.set('price', '12500 DA');
+      sheetsData.set('order_date', new Date().toLocaleString('en-CA'));
+
+      try {
+        // Formspree يعيد نتيجة يمكن التحقق منها
+        const formspreeRequest = fetch(FORMSPREE_URL, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        // no-cors لتجنب منع المتصفح لطلب Google Apps Script عبر نطاق خارجي.
+        // يجب أن تكون دالة doPost في Apps Script تقرأ e.parameter.
+        const sheetsRequest = fetch(GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: sheetsData
+        });
+
+        const [formspreeResult, sheetsResult] = await Promise.allSettled([
+          formspreeRequest,
+          sheetsRequest
+        ]);
+
+        if (formspreeResult.status !== 'fulfilled' || !formspreeResult.value.ok) {
+          throw new Error('تعذر إرسال الطلب إلى Formspree.');
+        }
+
+        if (sheetsResult.status === 'rejected') {
+          formMessage.textContent =
+            'تم استلام طلبك عبر النموذج، لكن تعذر إرسال نسخة إلى Google Sheets. يرجى مراجعة إعدادات الربط.';
+        } else {
+          formMessage.textContent =
+            'تم إرسال طلبك بنجاح! سنتواصل معك قريباً لتأكيد المعلومات.';
+        }
+        formMessage.style.color = '#d8d8d8';
+        orderForm.reset();
+      } catch (error) {
+        console.error('Order submission error:', error);
+        formMessage.textContent =
+          'لم نتمكن من تأكيد إرسال الطلب. تحقق من اتصال الإنترنت وحاول مرة أخرى.';
+        formMessage.style.color = '#ff9b9b';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.style.opacity = '1';
+        submitButton.innerHTML = originalButtonHTML;
+      }
+    });
+  </script>
+
+</body>
+</html>
