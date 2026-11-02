@@ -599,6 +599,112 @@
         scroll-behavior: auto !important;
       }
     }
+  
+
+    /* Mobile refinement: cleaner hierarchy, balanced product scale and easier ordering */
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 78px; }
+      body { overflow-x: clip; }
+      .container { width: min(100% - 36px, 520px); }
+      .site-header { height: 66px; gap: 12px; }
+      .logo { font-size: 24px; letter-spacing: 4px; }
+      .header-note { display: none; }
+      .menu-toggle { flex: 0 0 42px; }
+
+      .hero {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 18px 0 38px;
+      }
+      .product-image {
+        order: 0;
+        width: 100%;
+        max-width: 340px;
+        min-height: 0;
+        height: clamp(245px, 72vw, 330px);
+        margin: 0 auto 8px;
+        display: grid;
+        place-items: center;
+      }
+      .product-image img {
+        width: min(78%, 270px);
+        max-height: 100%;
+        object-fit: contain;
+        margin: auto;
+        transform: none;
+        animation: bottleFloatMobile 7s ease-in-out infinite;
+      }
+      @keyframes bottleFloatMobile {
+        0%,100% { transform: translate3d(0,-4px,0); }
+        50% { transform: translate3d(0,-12px,0); }
+      }
+      .product-info { order: 1; text-align: center; width: 100%; }
+      .eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 8px; }
+      h1 { font-size: clamp(43px, 13vw, 58px); line-height: 1.05; letter-spacing: 3px; }
+      .subtitle { font-size: 13px; line-height: 1.8; margin: 10px 0 12px; }
+      .description {
+        max-width: 390px;
+        margin: 0 auto 16px;
+        font-size: 13px;
+        line-height: 1.9;
+        padding-inline: 4px;
+      }
+      .price { font-size: 27px; margin-bottom: 16px; }
+      .price span { font-size: 12px; }
+      .features { justify-content: center; gap: 7px; margin-bottom: 15px; }
+      .features > * { font-size: 11px; }
+      .product-facts { width: 100%; max-width: 390px; gap: 7px; margin: 0 auto 18px; }
+      .product-fact { padding: 10px 5px; min-width: 0; }
+      .product-fact strong { font-size: 12px; }
+      .product-fact span { font-size: 10px; }
+      .order-btn { width: 100%; min-width: 0; max-width: 390px; padding: 13px 18px; font-size: 14px; }
+      .order-assurance { gap: 7px 14px; margin-top: 13px; font-size: 10px; }
+
+      .order-section { padding: 38px 0 105px; }
+      .section-heading { margin-bottom: 22px; }
+      .section-heading h2 { font-size: 23px; }
+      .section-heading p { font-size: 12px; line-height: 1.8; }
+      .order-card { padding: 20px 15px; }
+      .form-group { margin-bottom: 14px; }
+      label { font-size: 12px; margin-bottom: 7px; }
+      input, select, textarea { min-height: 48px; padding: 12px; font-size: 14px; }
+      textarea { min-height: 82px; }
+      .submit-btn { min-height: 49px; }
+      .faq-section { padding: 38px 0 45px; }
+      .faq-section .section-heading h2 { font-size: 22px; }
+      .faq-item summary { padding: 15px 3px; font-size: 12px; line-height: 1.7; }
+      .faq-item p { font-size: 12px; }
+      footer { padding: 20px 0 95px; font-size: 11px; }
+      .mobile-order { padding: 9px 18px calc(9px + env(safe-area-inset-bottom)); }
+      .mobile-order .order-btn { max-width: none; min-height: 46px; padding: 11px 15px; }
+      .back-to-top { bottom: calc(76px + env(safe-area-inset-bottom)); width: 38px; height: 38px; }
+      body::after { opacity: .13; filter: blur(42px); }
+    }
+
+    @media (max-width: 390px) {
+      .container { width: calc(100% - 28px); }
+      .hero { padding-top: 12px; gap: 5px; }
+      .product-image { height: 245px; max-width: 300px; margin-bottom: 5px; }
+      .product-image img { width: min(76%, 235px); }
+      h1 { font-size: 42px; }
+      .subtitle { font-size: 12px; }
+      .description { font-size: 12px; }
+      .product-facts { gap: 5px; }
+      .product-fact { padding: 9px 3px; }
+      .product-fact strong { font-size: 11px; }
+      .product-fact span { font-size: 9px; }
+      .order-card { padding: 17px 12px; }
+    }
+
+    @media (max-width: 360px) {
+      .product-image { height: 220px; }
+      .product-image img { width: min(74%, 215px); }
+      .logo { font-size: 22px; }
+    }
+
   </style>
 </head>
 
